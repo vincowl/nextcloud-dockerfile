@@ -1,2 +1,5 @@
 # nextcloud-dockerfile
-New dockerfile to add custom services
+New dockerfile based on `nextcloud:latest` to add custom services :
+* SVG support
+* cron services inside the container
+
