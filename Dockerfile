@@ -10,7 +10,8 @@ COPY supervisord.conf /
 
 ENV NEXTCLOUD_UPDATE=1
 
-CMD sed -i \
+CMD /entrypoint.sh; \
+    sed -i \
         -e ':a;N;$!ba;s|  <IfModule mod_env.c>\n    SetEnv front_controller_active true|  <IfModule mod_env.c>\n    Header always set Strict-Transport-Security "max-age=15552000; includeSubDomains"\n    SetEnv front_controller_active true|' \
         -e 's|dav /remote.php/dav/ |dav https://%{SERVER_NAME}/remote.php/dav/ |g' \
         /var/www/html/.htaccess ;\
