@@ -1,3 +1,4 @@
+![foo](https://github.com/vincowl/nextcloud-dockerfile/actions/workflows/dockerhub.yml/badge.svg)
 # nextcloud-dockerfile
 New dockerfile based on `nextcloud:latest` to add custom services :
 * SVG support
