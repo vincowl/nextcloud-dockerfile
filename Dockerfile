@@ -1,6 +1,7 @@
 FROM nextcloud:latest
 
 RUN apt-get update && apt-get install -y \
+    sudo \
     supervisor \
     libmagickcore-6.q16-6-extra \
     python3-pip \
@@ -11,6 +12,8 @@ RUN apt-get update && apt-get install -y \
   && mkdir /var/log/supervisord /var/run/supervisord
 
 COPY supervisord.conf /
+COPY sudo_env /etc/sudoers.d/
+COPY environment /etc/environment
 
 ENV NEXTCLOUD_UPDATE=1
 
