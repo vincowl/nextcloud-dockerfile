@@ -36,7 +36,7 @@ ENV NEXTCLOUD_UPDATE=1
 
 CMD sed -i \
         -e ':a;N;$!ba;s|  <IfModule mod_env.c>\n    # Add security and privacy related headers|  <IfModule mod_env.c>\n    # Add security and privacy related headers\n    Header always set Strict-Transport-Security "max-age=15552000; includeSubDomains"\n    SetEnv front_controller_active true|' \
-        -e 's| Header always set X-Content-Type-Options "nosniff"| Header always set X-Content-Type-Options "nosniff"\n\n Header onsuccess unset X-Download-Options\n Header always set X-Download-Options "noopen"\n|g' \
+        -e 's|    Header always set X-Content-Type-Options "nosniff"|    Header always set X-Content-Type-Options "nosniff"\n\n    Header onsuccess unset X-Download-Options\n    Header always set X-Download-Options "noopen"\n|g' \
         -e 's|dav /remote.php/dav/ |dav https://%{SERVER_NAME}/remote.php/dav/ |g' \
         /var/www/html/.htaccess; \
     chmod 764 /etc/sudoers.d/sudo_env; \
