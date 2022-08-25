@@ -40,5 +40,5 @@ CMD sed -i \
         -e 's|dav /remote.php/dav/ |dav https://%{SERVER_NAME}/remote.php/dav/ |g' \
         /var/www/html/.htaccess; \
     chmod 764 /etc/sudoers.d/sudo_env; \
-    sudo -u www-data /var/www/html/occ maintenance:update:htaccess \
+    sudo -u www-data /var/www/html/occ maintenance:update:htaccess; \
     /usr/bin/supervisord -c /supervisord.conf
