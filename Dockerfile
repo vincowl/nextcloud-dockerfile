@@ -43,10 +43,10 @@ RUN touch /var/log/auth.log
 COPY supervisord.conf /
 COPY fail2ban.conf /etc/fail2ban/filter.d/nextcloud.conf
 COPY jail.conf /etc/fail2ban/jail.d/nextcloud.local
-#COPY sudo_env /etc/sudoers.d/
-#COPY environment /etc/environment
+COPY sudo_env /etc/sudoers.d/
+COPY environment /etc/environment
 
-#RUN chmod 764 /etc/sudoers.d/sudo_env;
+RUN chmod 764 /etc/sudoers.d/sudo_env;
 
 ENV NEXTCLOUD_UPDATE=1
 

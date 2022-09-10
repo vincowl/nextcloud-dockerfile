@@ -1,0 +1,3 @@
+Defaults  env_keep += "PHP_MEMORY_LIMIT"
+Defaults  env_keep += "PHP_UPLOAD_LIMIT"
+Defaults  env_keep += "PATH"
