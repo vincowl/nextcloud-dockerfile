@@ -23,7 +23,9 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     postgresql-client-14 \
     fail2ban \
-    openssh-server; \
+    openssh-server \
+    procps \
+    smbclient; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*; \
     pip3 install svglib; \
