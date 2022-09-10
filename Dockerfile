@@ -41,9 +41,14 @@ RUN chmod 764 /etc/sudoers.d/sudo_env;
 
 ENV NEXTCLOUD_UPDATE=1
 
+
 #RUN sed -i \
 #    -e ':a;N;$!ba;s|  <IfModule mod_env.c>\n    # Add security and privacy related headers|  <IfModule mod_env.c>\n    # Add security and privacy related headers\n    Header always set Strict-Transport-Security "max-age=15552000; includeSubDomains"\n    SetEnv front_controller_active true|' \
 #    -e 's|    Header always set X-Content-Type-Options "nosniff"|    Header always set X-Content-Type-Options "nosniff"\n\n    Header onsuccess unset X-Download-Options\n    Header always set X-Download-Options "noopen"\n|g' \
 #    -e 's|dav /remote.php/dav/ |dav https://%{SERVER_NAME}/remote.php/dav/ |g' \
 #    /var/www/html/.htaccess;
-CMD /usr/bin/supervisord -c /supervisord.conf
+CMD sudo -u www-data /var/www/html/occ config:system:set default_phone_region --type string --value="FR"; \
+    sudo -u www-data /var/www/html/occ config:system:set default_language --type string --value="fr"; \
+    sudo -u www-data /var/www/html/occ config:system:set default_locale --type string --value="fr_FR"; \
+    sudo -u www-data /var/www/html/occ maintenance:repair; \
+    /usr/bin/supervisord -c /supervisord.conf
