@@ -55,4 +55,6 @@ ENV NEXTCLOUD_UPDATE=1
 #    -e 's|dav /remote.php/dav/ |dav https://%{SERVER_NAME}/remote.php/dav/ |g' \
 #    /var/www/html/.htaccess;
 
-CMD /usr/bin/supervisord -c /supervisord.conf
+CMD rm /var/run/fail2ban/fail2ban.sock; \
+    service fail2ban restart; \
+    /usr/bin/supervisord -c /supervisord.conf
