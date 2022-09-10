@@ -22,7 +22,8 @@ RUN apt-get update && apt-get install -y \
     pdftk \
     libpq-dev \
     postgresql-client-14 \
-    fail2ban; \
+    fail2ban \
+    openssh-server; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*; \
     pip3 install svglib; \
@@ -33,6 +34,9 @@ RUN apt-get update && apt-get install -y \
 # See https://stackoverflow.com/questions/47603398/docker-php-with-pdo-pgsql-install-issue
 RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql; \
     docker-php-ext-install pdo pdo_pgsql pgsql
+
+# Fail2ban
+RUN touch /var/log/auth.log
 
 COPY supervisord.conf /
 COPY fail2ban.conf /etc/fail2ban/filter.d/nextcloud.conf
