@@ -21,7 +21,8 @@ RUN apt-get update && apt-get install -y \
     ghostscript \
     pdftk \
     libpq-dev \
-    postgresql-client-14; \
+    postgresql-client-14 \
+    fail2ban; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*; \
     pip3 install svglib; \
@@ -34,6 +35,8 @@ RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql; \
     docker-php-ext-install pdo pdo_pgsql pgsql
 
 COPY supervisord.conf /
+COPY fail2ban.conf /etc/fail2ban/filter.d/nextcloud.conf
+COPY jail.conf /etc/fail2ban/jail.d/nextcloud.local
 #COPY sudo_env /etc/sudoers.d/
 #COPY environment /etc/environment
 
