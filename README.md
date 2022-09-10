@@ -5,3 +5,7 @@ New dockerfile based on `nextcloud:latest` to add custom services :
 * cron services inside the container
 * Resolves .htaccess troubles
 * Add dependencies to allow run of [PDF Annotate](https://gitlab.com/nextcloud-other/nextcloud-annotate.git) app : gs, pdftk, pip3 and svglib (svg2pdf). This app shall be installed manually.
+* large chunk files sending support
+* postgresql 14 support
+* fail2ban installed
+* External storage using SMB/CIFS
