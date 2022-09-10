@@ -37,6 +37,8 @@ COPY supervisord.conf /
 COPY sudo_env /etc/sudoers.d/
 COPY environment /etc/environment
 
+RUN chmod 764 /etc/sudoers.d/sudo_env;
+
 ENV NEXTCLOUD_UPDATE=1
 
 #RUN sed -i \
