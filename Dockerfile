@@ -47,8 +47,8 @@ ENV NEXTCLOUD_UPDATE=1
 #    -e 's|    Header always set X-Content-Type-Options "nosniff"|    Header always set X-Content-Type-Options "nosniff"\n\n    Header onsuccess unset X-Download-Options\n    Header always set X-Download-Options "noopen"\n|g' \
 #    -e 's|dav /remote.php/dav/ |dav https://%{SERVER_NAME}/remote.php/dav/ |g' \
 #    /var/www/html/.htaccess;
-CMD sudo -u www-data /var/www/html/occ config:system:set default_phone_region --type string --value="FR"; \
-    sudo -u www-data /var/www/html/occ config:system:set default_language --type string --value="fr"; \
-    sudo -u www-data /var/www/html/occ config:system:set default_locale --type string --value="fr_FR"; \
-    sudo -u www-data /var/www/html/occ maintenance:repair; \
-    /usr/bin/supervisord -c /supervisord.conf
+#CMD sudo -u www-data /var/www/html/occ config:system:set default_phone_region --type string --value="FR"; \
+#    sudo -u www-data /var/www/html/occ config:system:set default_language --type string --value="fr"; \
+#    sudo -u www-data /var/www/html/occ config:system:set default_locale --type string --value="fr_FR"; \
+#    sudo -u www-data /var/www/html/occ maintenance:repair; \
+CMD /usr/bin/supervisord -c /supervisord.conf
