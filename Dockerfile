@@ -41,10 +41,10 @@ RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql; \
 RUN touch /var/log/auth.log
 
 COPY supervisord.conf /
-COPY fail2ban.conf /etc/fail2ban/filter.d/nextcloud.conf
-COPY jail.conf /etc/fail2ban/jail.d/nextcloud.local
-COPY sudo_env /etc/sudoers.d/
-COPY environment /etc/environment
+COPY config/fail2ban/fail2ban.conf /etc/fail2ban/filter.d/nextcloud.conf
+COPY config/fail2ban/jail.conf /etc/fail2ban/jail.d/nextcloud.local
+COPY config/env/sudo_env /etc/sudoers.d/
+COPY config/env/environment /etc/environment
 
 RUN chmod 764 /etc/sudoers.d/sudo_env;
 
