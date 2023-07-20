@@ -57,6 +57,10 @@ ENV NEXTCLOUD_UPDATE=1
 #    -e 's|dav /remote.php/dav/ |dav https://%{SERVER_NAME}/remote.php/dav/ |g' \
 #    /var/www/html/.htaccess;
 
+RUN sed -i \
+    -e ':a;N;$!ba;s|opcache.memory_consumption=128|opcache.memory_consumption=512|g'
+    /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini;
+
 CMD rm /var/run/fail2ban/fail2ban.sock; \
     service fail2ban restart; \
     /usr/bin/supervisord -c /supervisord.conf
