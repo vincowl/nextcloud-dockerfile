@@ -5,11 +5,11 @@ RUN curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor | te
 
 # As of writing, NC is using `bullseye` and unable to install lsb-release with ease, so hardcoded
 # To be replaced by cat /etc/os-release | grep VERSION_CODENAME | awk -F "=" '{print $2}'
-RUN version=$(cat /etc/os-release | grep VERSION_ID | awk -F '"' '{print $2}'); \
-    version_name=$(cat /etc/os-release | grep VERSION_CODENAME | awk -F "=" '{print $2}'); \
-    debrelease=$(if [ $version -lt 12 ]; then echo "bookworm";else echo $version_name;fi); \
-    echo "deb http://apt.postgresql.org/pub/repos/apt $debrelease-pgdg main" > /etc/apt/sources.list.d/pgdg.list; \
-    sed -i -e "s|bullseye|$debrelease|g" /etc/apt/sources.list;
+#RUN version=$(cat /etc/os-release | grep VERSION_ID | awk -F '"' '{print $2}'); \
+#    version_name=$(cat /etc/os-release | grep VERSION_CODENAME | awk -F "=" '{print $2}'); \
+#    debrelease=$(if [ $version -lt 12 ]; then echo "bookworm";else echo $version_name;fi); \
+#    echo "deb http://apt.postgresql.org/pub/repos/apt $debrelease-pgdg main" > /etc/apt/sources.list.d/pgdg.list; \
+#    sed -i -e "s|bullseye|$debrelease|g" /etc/apt/sources.list;
 
 # Install libpq-dev for PHP-Extension pgsql
 # Install postgresql-client-10 and postgresql-dev for Backup-App   
