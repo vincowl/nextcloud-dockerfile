@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
     ghostscript \
     pdftk \
     libpq-dev \
-    postgresql-client-14 \
+    postgresql-client-15 \
     fail2ban \
     openssh-server \
     procps \
