@@ -59,7 +59,7 @@ ENV NEXTCLOUD_UPDATE=1
 
 RUN sed -i \
     -e ':a;N;$!ba;s|opcache.memory_consumption=128|opcache.memory_consumption=512|g' \
-    /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini;
+    /usr/local/etc/php/conf.d/opcache-recommended.ini;
 
 CMD rm /var/run/fail2ban/fail2ban.sock; \
     service fail2ban restart; \
