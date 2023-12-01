@@ -25,7 +25,8 @@ RUN apt-get update && apt-get install -y \
     fail2ban \
     openssh-server \
     procps \
-    smbclient; \
+    smbclient \
+    ffmpeg; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*; \
     pip3 install svglib; \
