@@ -36,7 +36,7 @@ RUN apt-get update && apt-get install -y \
 # Package with wich Backup-App can talk to Postgres using PHP
 # See https://stackoverflow.com/questions/47603398/docker-php-with-pdo-pgsql-install-issue
 RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql; \
-    docker-php-ext-install pdo pdo_pgsql pgsql bz2 smbclient imap ffmpeg avconf libreoffice
+    docker-php-ext-install pdo pdo_pgsql pgsql bz2 smbclient imap ffmpeg avconf
 
 # Fail2ban
 RUN touch /var/log/auth.log
