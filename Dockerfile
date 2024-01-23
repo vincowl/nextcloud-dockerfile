@@ -26,6 +26,8 @@ RUN apt-get update && apt-get install -y \
     openssh-server \
     procps \
     smbclient \
+    libsmbclient-dev \
+    libbz2-dev \
     ffmpeg; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*; \
@@ -39,7 +41,8 @@ RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql; \
     docker-php-ext-install pdo pdo_pgsql pgsql 
     
 RUN docker-php-ext-install bz2; \
-    pecl install imap smbclient;
+    pecl install smbclient; \
+    docker-php-ext-enable smbclient;
 
 # Fail2ban
 RUN touch /var/log/auth.log
