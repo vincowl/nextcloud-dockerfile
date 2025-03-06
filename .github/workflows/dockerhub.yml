@@ -30,7 +30,7 @@ jobs:
         uses: lucacome/docker-image-update-checker@v2.0.0
         with:
           base-image: nextcloud:latest
-          image: vincowl/nextcloud-dockerfile:latestvincowl/nextcloud-dockerfile:latest
+          image: vincowl/nextcloud-dockerfile:latest
           
       - name: Build and push
         uses: docker/build-push-action@v6
