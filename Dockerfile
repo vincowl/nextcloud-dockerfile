@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     ghostscript \
     pdftk \
-    libpq-dev \
+    libpq-dev libpq5 \
     postgresql-client-15 \
     fail2ban \
     openssh-server \
