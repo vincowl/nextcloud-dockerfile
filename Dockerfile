@@ -16,12 +16,12 @@ RUN curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor | te
 RUN apt-get update && apt-get install -y \
     sudo \
     supervisor \
-    libmagickcore-6.q16-6-extra \
+    libmagickcore-7.q16-10-extra \
     python3-pip \
     ghostscript \
     pdftk \
     libpq-dev \
-    postgresql-client-15 \
+    postgresql-client-17 \
     fail2ban \
     openssh-server \
     procps \
