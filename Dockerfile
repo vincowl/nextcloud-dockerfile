@@ -33,8 +33,7 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*; \
     pip3 install svglib; \
     rm -rf /var/lib/apt/lists/*; \
-    mkdir /var/log/supervisord /var/run/supervisord; \
-    docker-php-ext-install pdo pdo_pgsql pgsql;
+    mkdir /var/log/supervisord /var/run/supervisord;
 
 # Package with wich Backup-App can talk to Postgres using PHP
 # See https://stackoverflow.com/questions/47603398/docker-php-with-pdo-pgsql-install-issue
