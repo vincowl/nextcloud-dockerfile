@@ -28,6 +28,7 @@ RUN apt-get update && apt-get install -y \
     smbclient \
     libsmbclient-dev \
     libbz2-dev \
+    vim \
     ffmpeg; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*; \
