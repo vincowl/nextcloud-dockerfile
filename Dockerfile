@@ -1,4 +1,4 @@
-FROM nextcloud:31
+FROM nextcloud:32.0
 # gnupg is a required for adding the Postgres key
 RUN apt update && apt install -y gnupg
 RUN curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor | tee /etc/apt/trusted.gpg.d/apt.postgresql.org.gpg >/dev/null
